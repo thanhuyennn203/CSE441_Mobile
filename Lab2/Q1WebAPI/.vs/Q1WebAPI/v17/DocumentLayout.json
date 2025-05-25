@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "F:\\CSE441\\Lab2\\Q1WebAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|f:\\cse441\\lab2\\q1webapi\\q1webapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|solutionrelative:q1webapi\\controllers\\bookcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|f:\\cse441\\lab2\\q1webapi\\q1webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|solutionrelative:q1webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|f:\\cse441\\lab2\\q1webapi\\q1webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|solutionrelative:q1webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|f:\\cse441\\lab2\\q1webapi\\q1webapi\\models\\librarymanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|solutionrelative:q1webapi\\models\\librarymanagementcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|f:\\cse441\\lab2\\q1webapi\\q1webapi\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2142A6-F188-47FD-9DF7-054623A8566B}|Q1WebAPI\\Q1WebAPI.csproj|solutionrelative:q1webapi\\models\\book.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BookController.cs",
+              "DocumentMoniker": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Controllers\\BookController.cs",
+              "RelativeDocumentMoniker": "Q1WebAPI\\Controllers\\BookController.cs",
+              "ToolTip": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Controllers\\BookController.cs",
+              "RelativeToolTip": "Q1WebAPI\\Controllers\\BookController.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAowEQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T14:42:12.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Book.cs",
+              "DocumentMoniker": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Models\\Book.cs",
+              "RelativeDocumentMoniker": "Q1WebAPI\\Models\\Book.cs",
+              "ToolTip": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Models\\Book.cs",
+              "RelativeToolTip": "Q1WebAPI\\Models\\Book.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T14:36:50.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LibraryManagementContext.cs",
+              "DocumentMoniker": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Models\\LibraryManagementContext.cs",
+              "RelativeDocumentMoniker": "Q1WebAPI\\Models\\LibraryManagementContext.cs",
+              "ToolTip": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Models\\LibraryManagementContext.cs",
+              "RelativeToolTip": "Q1WebAPI\\Models\\LibraryManagementContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T14:35:53.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Q1WebAPI\\Program.cs",
+              "ToolTip": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\Program.cs",
+              "RelativeToolTip": "Q1WebAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-04T14:32:42.831Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "Q1WebAPI\\appsettings.json",
+              "ToolTip": "F:\\CSE441\\Lab2\\Q1WebAPI\\Q1WebAPI\\appsettings.json",
+              "RelativeToolTip": "Q1WebAPI\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-04T14:31:41.266Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

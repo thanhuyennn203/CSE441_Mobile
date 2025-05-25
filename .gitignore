@@ -1,0 +1,10 @@
+# Ignore all node_modules folders in the project
+**/node_modules/
+
+# Ignore environment variables
+.env
+
+# Ignore build folders
+dist/
+build/
+
