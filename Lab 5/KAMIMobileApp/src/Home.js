@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Appbar, Text, Card, IconButton } from "react-native-paper";
-import { SafeAreaView } from "react-native-safe-area-context";
+// import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const ServiceList = ({ navigation }) => {
   const [services, setServices] = useState([]);
@@ -28,7 +29,7 @@ const ServiceList = ({ navigation }) => {
       .catch((error) => {
         console.error("Error fetching data: ", error);
       });
-  }, []);
+  }, [services]);
 
   const renderService = ({ item }) => (
     <TouchableOpacity
@@ -52,7 +53,7 @@ const ServiceList = ({ navigation }) => {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaProvider style={{ flex: 1 }}>
       <Appbar.Header style={styles.appbar}>
         <Appbar.Content title="HUYỀN TRINH" titleStyle={styles.appbarTitle} />
         <Appbar.Action
@@ -90,7 +91,7 @@ const ServiceList = ({ navigation }) => {
           keyboardShouldPersistTaps="handled"
         />
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

@@ -32,7 +32,8 @@ const LoginScreen = ({ navigation }) => {
       if (response.ok) {
         await AsyncStorage.setItem("token", data.token);
         alert("Login successful!");
-        navigation.navigate("ServiceList");
+        // navigation.navigate("ServiceList");
+        navigation.replace("MainTabs");
       } else {
         alert(data.message || "Login failed");
       }

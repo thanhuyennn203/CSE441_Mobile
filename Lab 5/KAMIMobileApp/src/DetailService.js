@@ -6,8 +6,9 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import { IconButton } from "react-native-paper";
+import { IconButton, Appbar } from "react-native-paper";
 import React, { useState, useEffect } from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 const DetailService = ({ route, navigation }) => {
   const { service } = route.params;
@@ -23,19 +24,19 @@ const DetailService = ({ route, navigation }) => {
       setToken(savedToken);
     };
     loadToken();
-  }, []);
+  }, [service]);
 
   const Delete = async () => {
     try {
       const response = await fetch(
-        `https://kami-backend-5rs0.onrender.com/services/${service._id}`,
+        `https://kami-backend-5rs0.onrender.com/services/${id}`,
         {
-          method: "PUT",
+          method: "DELETE",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ id, name, price: Number(price) }),
+          // body: JSON.stringify({ name, price: Number(price) }),
         }
       );
 
@@ -43,6 +44,7 @@ const DetailService = ({ route, navigation }) => {
 
       if (response.ok) {
         alert("Service deleted successfully!");
+        navigation.goBack();
       } else {
         alert(data.message || "Failed to delete service");
       }
@@ -53,64 +55,72 @@ const DetailService = ({ route, navigation }) => {
   };
   // console.log({ service });
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Service detail</Text>
-        <IconButton
-          icon="dots-vertical"
-          size={24}
-          iconColor="white"
+    <SafeAreaProvider>
+      <Appbar.Header style={styles.appbar}>
+        <Appbar.BackAction
+          color="white"
+          size={18}
+          onPress={() => navigation.navigate("MainTabs", { screen: "Home" })}
+        />
+        <Appbar.Content title="Details" titleStyle={styles.appbarTitle} />
+        <Appbar.Action
+          icon="delete"
+          color="white"
+          size={20}
           onPress={() => {
             Alert.alert("Confirm", "Are you sure you want to remove this?", [
               { text: "Cancel", style: "cancel" },
               { text: "Delete", onPress: Delete },
             ]);
           }}
+          style={styles.delete}
         />
+      </Appbar.Header>
+
+      <View style={styles.container}>
+        <View style={styles.body}>
+          <Text style={styles.content}>
+            <Text style={styles.bold}>Service name:</Text>
+            {service.name}
+          </Text>
+          <Text style={styles.content}>
+            <Text style={styles.bold}>Price:</Text>
+            {service.price} ₫
+          </Text>
+          <Text style={styles.content}>
+            <Text style={styles.bold}>Creator:</Text> {service.createdBy}
+          </Text>
+          <Text style={styles.content}>
+            <Text style={styles.bold}>Time:</Text> {service.createdAt}
+          </Text>
+          <Text style={styles.content}>
+            <Text style={styles.bold}>Final update:</Text> {service.updatedAt}
+          </Text>
+          <TouchableOpacity
+            style={styles.button}
+            onPress={() =>
+              navigation.navigate("UpdateService", { item: service })
+            }
+          >
+            <Text style={styles.buttonText}>Update Service</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={styles.body}>
-        <Text style={styles.content}>
-          <Text style={styles.bold}>Service name:</Text>
-          {service.name}
-        </Text>
-        <Text style={styles.content}>
-          <Text style={styles.bold}>Price:</Text>
-          {service.price} ₫
-        </Text>
-        <Text style={styles.content}>
-          <Text style={styles.bold}>Creator:</Text> {service.createdBy}
-        </Text>
-        <Text style={styles.content}>
-          <Text style={styles.bold}>Time:</Text> {service.createdAt}
-        </Text>
-        <Text style={styles.content}>
-          <Text style={styles.bold}>Final update:</Text> {service.updatedAt}
-        </Text>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() =>
-            navigation.navigate("UpdateService", { item: service })
-          }
-        >
-          <Text style={styles.buttonText}>Update Service</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </SafeAreaProvider>
   );
 };
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  header: {
+  appbar: {
     backgroundColor: "#F75A68",
-    paddingBottom: 10,
-    paddingTop: 50,
-    paddingLeft: 30,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    zIndex: 10,
+    elevation: 4,
   },
-  headerText: { color: "#fff", fontSize: 18, fontWeight: 600 },
+  appbarTitle: { color: "white", fontWeight: "bold", textAlign: "left" },
+  delete: {
+    marginLeft: 20,
+  },
   body: { padding: 20 },
   content: {
     marginBottom: 10,

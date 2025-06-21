@@ -23,7 +23,7 @@ const UpdateService = ({ route, navigation }) => {
       setToken(savedToken);
     };
     loadToken();
-  }, []);
+  }, [item]);
 
   const Update = async () => {
     if (!name || !price) {
@@ -48,8 +48,11 @@ const UpdateService = ({ route, navigation }) => {
 
       if (response.ok) {
         alert("Service updated successfully!");
+        item.name = name;
+        item.price = price;
         setName("");
         setPrice("");
+        navigation.navigate("DetailService", { service: item });
       } else {
         alert(data.message || "Failed to update service");
       }

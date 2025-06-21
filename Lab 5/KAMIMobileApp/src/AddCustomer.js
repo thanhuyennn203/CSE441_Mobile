@@ -10,9 +10,9 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Appbar } from "react-native-paper";
 
-const AddService = ({ navigation }) => {
+const AddCustomer = ({ navigation }) => {
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [phone, setPhone] = useState("");
   const [token, setToken] = useState(null);
 
   // Load token from AsyncStorage on mount
@@ -25,21 +25,21 @@ const AddService = ({ navigation }) => {
   }, []);
 
   const Add = async () => {
-    if (!name || !price) {
-      alert("Please enter both name and price");
+    if (!name || !phone) {
+      alert("Please enter both name and phone");
       return;
     }
 
     try {
       const response = await fetch(
-        "https://kami-backend-5rs0.onrender.com/services",
+        "https://kami-backend-5rs0.onrender.com/customers",
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ name, price: Number(price) }),
+          body: JSON.stringify({ name, phone: Number(phone) }),
         }
       );
 
@@ -49,7 +49,7 @@ const AddService = ({ navigation }) => {
         alert("Service added successfully!");
 
         setName("");
-        setPrice("");
+        setPhone("");
       } else {
         alert(data.message || "Failed to add service");
       }
@@ -67,24 +67,24 @@ const AddService = ({ navigation }) => {
           size={18}
           onPress={() => navigation.goBack()}
         />
-        <Appbar.Content title="Add Services" titleStyle={styles.appbarTitle} />
+        <Appbar.Content title="Add Customer" titleStyle={styles.appbarTitle} />
       </Appbar.Header>
 
       <View style={styles.container}>
-        <Text style={styles.lable}>Service name*</Text>
+        <Text style={styles.lable}>Customer name*</Text>
         <TextInput
           style={styles.input}
           value={name}
           onChangeText={setName}
-          placeholder="Enter service name"
+          placeholder="Enter customer name"
         />
 
-        <Text style={styles.lable}>Price*</Text>
+        <Text style={styles.lable}>Phone*</Text>
         <TextInput
           style={styles.input}
-          value={price}
-          onChangeText={setPrice}
-          placeholder="Enter price"
+          value={phone}
+          onChangeText={setPhone}
+          placeholder="Enter phone"
           keyboardType="numeric"
         />
 
@@ -96,7 +96,7 @@ const AddService = ({ navigation }) => {
   );
 };
 
-export default AddService;
+export default AddCustomer;
 
 const styles = StyleSheet.create({
   container: {
