@@ -7,13 +7,15 @@ import {
   Alert,
   ScrollView,
 } from "react-native";
-import { IconButton, Appbar, Card, Divider } from "react-native-paper";
+import { IconButton, Appbar, Card, Divider, Menu } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const TransactionDetail = ({ route, navigation }) => {
   const { id } = route.params;
-  console.log(id);
+  // console.log(id);
+
   const [transaction, setTransaction] = useState({});
 
   const [token, setToken] = useState(null);
@@ -42,34 +44,37 @@ const TransactionDetail = ({ route, navigation }) => {
         console.error("Error fetching data: ", error);
       });
   }, [id]);
+  const [visible, setVisible] = useState(false);
 
-  // const Delete = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `https://kami-backend-5rs0.onrender.com/services/${id}`,
-  //       {
-  //         method: "DELETE",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //         // body: JSON.stringify({ name, price: Number(price) }),
-  //       }
-  //     );
+  const openMenu = () => setVisible(true);
+  const closeMenu = () => setVisible(false);
 
-  //     const data = await response.json();
+  const CancelTransaction = async () => {
+    try {
+      const response = await fetch(
+        `https://kami-backend-5rs0.onrender.com/transactions/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-  //     if (response.ok) {
-  //       alert("Service deleted successfully!");
-  //       navigation.navigate("ServiceList");
-  //     } else {
-  //       alert(data.message || "Failed to delete service");
-  //     }
-  //   } catch (error) {
-  //     console.error("Error deleteting service:", error);
-  //     alert("An error occurred");
-  //   }
-  // };
+      const data = await response.json();
+
+      if (response.ok) {
+        alert("Transaction cancelled successfully!");
+        navigation.navigate("MainTabs", { screen: "Transaction" });
+      } else {
+        alert(data.message || "Failed to delete service");
+      }
+    } catch (error) {
+      console.error("Error deleteting service:", error);
+      alert("An error occurred");
+    }
+  };
 
   const date = new Date(transaction.createdAt).toLocaleString("vi-VN");
   const services = transaction.services || [];
@@ -86,19 +91,47 @@ const TransactionDetail = ({ route, navigation }) => {
           size={18}
           onPress={() => navigation.goBack()}
         />
-        <Appbar.Content title="Details" titleStyle={styles.appbarTitle} />
-        <Appbar.Action
-          icon="delete"
-          color="white"
-          size={20}
-          onPress={() => {
-            // Alert.alert("Confirm", "Are you sure you want to remove this?", [
-            //   { text: "Cancel", style: "cancel" },
-            //   { text: "Delete", onPress: Delete },
-            // ]);
-          }}
-          style={styles.delete}
+        <Appbar.Content
+          title="Transaction Details"
+          titleStyle={styles.appbarTitle}
         />
+
+        <Menu
+          visible={visible}
+          onDismiss={closeMenu}
+          anchor={
+            <Appbar.Action
+              icon="dots-vertical"
+              color="white"
+              onPress={openMenu}
+            />
+          }
+        >
+          <Menu.Item
+            onPress={() => {
+              closeMenu();
+            }}
+            title="See more details"
+          />
+          <Menu.Item
+            onPress={() => {
+              closeMenu();
+              Alert.alert(
+                "Warning",
+                "Are you sure you want to cancel this transaction? This will affect the customer transaction inforation",
+                [
+                  {
+                    text: "Yes",
+                    onPress: () => CancelTransaction(),
+                    style: "destructive",
+                  },
+                  { text: "Cancel", style: "cancel" },
+                ]
+              );
+            }}
+            title="Cancel transaction"
+          />
+        </Menu>
       </Appbar.Header>
       <SafeAreaView style={styles.container}>
         <ScrollView>

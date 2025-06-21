@@ -34,7 +34,12 @@ const Customer = ({ navigation }) => {
   }, [customers]);
 
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigation.push("CustomerDetail", { _id: item._id });
+      }}
+    >
       <View style={styles.rowBetween}>
         <View style={{ flex: 1 }}>
           <Text style={styles.label}>
@@ -55,7 +60,7 @@ const Customer = ({ navigation }) => {
           <Text style={styles.roleText}>{item.loyalty}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 
   return (

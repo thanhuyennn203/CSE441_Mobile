@@ -93,7 +93,7 @@ const Transaction = ({ navigation }) => {
 
         <TouchableOpacity
           style={styles.addBtn}
-          // onPress={() => navigation.navigate("")}
+          onPress={() => navigation.navigate("AddTransaction")}
         >
           <Icon name="plus" size={28} color="white" />
         </TouchableOpacity>

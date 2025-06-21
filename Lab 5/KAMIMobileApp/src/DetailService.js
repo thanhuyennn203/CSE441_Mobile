@@ -9,6 +9,7 @@ import {
 import { IconButton, Appbar } from "react-native-paper";
 import React, { useState, useEffect } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const DetailService = ({ route, navigation }) => {
   const { service } = route.params;
